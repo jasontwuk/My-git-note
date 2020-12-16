@@ -46,9 +46,46 @@
 
       - The `--hard` option changes all the files in your working tree to match the files in upstream/main
       
-      
+- ## How to reset to an old revision?
+  ```
+  git reset --hard <SHA-1 hash>
+  ```
+  Note: If `--hard` is used then all local changes after the old revision will be deleted. `<SHA-1 hash>` is the old revison's hash number (e.g. ff5297c).
+    
+  or
+  
+  ```
+  git reset --mixed <SHA-1 hash>
+  ```
+  Note: If `--mixed` is used then all changes in the removed revisions will be kept as local changes.
+
 - ## How to force your local repo to the remote one?
   ```
   git push -f <remote> <branch>
   ```
-  (eg. `git push -f origin main`)
+  (e.g. `git push -f origin main`)
+  
+- ## How to Add changes to an old commit with Interactive Rebase?
+  ```
+  git commit --fixup <the old commit's SHA-1 hash>
+  ```
+  ```
+  git rebase -i HEAD~<number> --autosquash
+  ```
+  Note: The `<number>` is the position of the old commit's parents (the one before the old commit). (e.g. If the old commit's position is 2, then `<number>` should be 3, please see the image below.)
+  
+  ![screenshot](https://user-images.githubusercontent.com/13745974/102413262-91730c80-3fec-11eb-948c-183d11f351f7.png)
+  
+  In the `git` window, type the following keys to save and run the code:
+ 
+  `Esc` `:` `w` `q`
+  
+  ![screenshot](https://user-images.githubusercontent.com/13745974/102413700-40174d00-3fed-11eb-865d-6f88d5530a22.png)
+  
+  
+- ## How to push an existing repository from local to remote?
+  ```
+  git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+  git branch -M main
+  git push -u origin main
+  ```
