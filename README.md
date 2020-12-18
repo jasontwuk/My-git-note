@@ -89,3 +89,22 @@
   git branch -M main
   git push -u origin main
   ```
+  
+- ## When you use `git branch -M main` and Terminal returns `error: refname refs/heads/HEAD not found` and `fatal: Branch rename failed` message...
+  It is in a detached head state. You must `checkout` a new branch to associate it with the current commit:
+  ```
+  git checkout -b <new branch name>
+  ```
+
+- ## How to view current remotes?
+  ```
+  git remote -v
+  ```
+  
+- ## How to remove a remote URL from your repository?
+  ```
+  git remote rm <remote name>
+  ```
+  Note: 
+  1. The `<remote name>` could be `origin`, `upstream` or others. 
+  2. git `remote rm` does not delete the remote repository from the server. It simply removes the remote and its references from your local repository.
