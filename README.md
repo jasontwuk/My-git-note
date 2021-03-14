@@ -109,7 +109,12 @@
   1. The `<remote name>` could be `origin`, `upstream` or others. 
   2. git `remote rm` does not delete the remote repository from the server. It simply removes the remote and its references from your local repository.
 
-- ## How do I create a new branch based on the current HEAD?
+- ## How to create a new branch based on the current HEAD?
   ```
   git branch <new-branch>
+  ```
+  
+- ## How to create a new branch and switch to it at the same time?
+  ```
+  git checkout -b <new-branch>
   ```
